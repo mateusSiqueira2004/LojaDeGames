@@ -63,6 +63,7 @@ namespace LojaDeGames.Service.Implements
             var CategoriaUpdate = await _context.Categorias.FindAsync(categoria.Id);
             if (CategoriaUpdate is null)
                 return null;
+
             _context.Entry(CategoriaUpdate).State = EntityState.Detached;
             _context.Entry(categoria).State = EntityState.Modified;
             await _context.SaveChangesAsync();

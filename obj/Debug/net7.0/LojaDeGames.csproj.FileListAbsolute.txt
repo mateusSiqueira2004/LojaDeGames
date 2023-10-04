@@ -79,3 +79,5 @@ D:\projetos\Generation\Projeto Loja de Games\LojaDeGames\obj\Debug\net7.0\refint
 D:\projetos\Generation\Projeto Loja de Games\LojaDeGames\obj\Debug\net7.0\LojaDeGames.pdb
 D:\projetos\Generation\Projeto Loja de Games\LojaDeGames\obj\Debug\net7.0\LojaDeGames.genruntimeconfig.cache
 D:\projetos\Generation\Projeto Loja de Games\LojaDeGames\obj\Debug\net7.0\ref\LojaDeGames.dll
+D:\projetos\Generation\Projeto Loja de Games\LojaDeGames\bin\Debug\net7.0\BCrypt.Net-Core.dll
+D:\projetos\Generation\Projeto Loja de Games\LojaDeGames\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

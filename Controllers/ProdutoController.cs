@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
 using LojaDeGames.Model;
 using LojaDeGames.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaDeGames.Controllers
 {
+    [Authorize]
     [Route("~/produto")]
     [ApiController]
     public class ProdutoController : ControllerBase
@@ -89,17 +91,25 @@ namespace LojaDeGames.Controllers
             return NoContent();
         }
         [HttpGet("preco/{valor1}/{valor2}")]
-        public async Task<ActionResult> GetByPreco(decimal valor1, decimal valor2)
+        public async Task<ActionResult> GetByPrecoEntre(decimal valor1, decimal valor2)
         {
             if (valor1 > valor2)
             {
                 return BadRequest("O valor mínimo não pode ser maior que o valor máximo.");
             }
 
-            var produtos = await _produtoService.GetByPreco(valor1, valor2);
+            var produtos = await _produtoService.GetByPrecoEntre(valor1, valor2);
 
             return Ok(produtos);
            
+        }
+        [HttpGet("preco/{preco}")]
+        public async Task<ActionResult> GetByPreco(decimal preco)
+        {
+            var produtos = await _produtoService.GetByPreco(preco);
+
+            return Ok(produtos);
+
         }
     }
 }

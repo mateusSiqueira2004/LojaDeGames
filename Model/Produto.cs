@@ -11,15 +11,15 @@ namespace LojaDeGames.Model
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(255)]
-        public string? Nome { get; set; }
+        public string? Nome { get; set; } = string.Empty;
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(255)]
-        public string? Decricao { get; set; }
+        public string? Decricao { get; set; } = string.Empty;
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(255)]
-        public string? Console { get; set;}
+        public string? Console { get; set;} = string.Empty;
 
         [DataType(DataType.Date)]
         [Column(TypeName = "DATE")]
@@ -30,9 +30,10 @@ namespace LojaDeGames.Model
 
         [Column(TypeName = "VARCHAR")]
         [StringLength(255)]
-        public string? Foto { get; set; }
+        public string? Foto { get; set; } = string.Empty;
 
         public virtual Categoria? Categoria { get; set; }
+        public virtual User? Usuario { get; set; }
 
     }
 }

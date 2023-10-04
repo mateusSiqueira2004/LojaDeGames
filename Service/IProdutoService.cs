@@ -12,7 +12,9 @@ namespace LojaDeGames.Service
 
         Task<IEnumerable<Produto>> GetByNomeConsole(string nome, string console);
 
-        Task<IEnumerable<Produto>> GetByPreco(decimal valor1, decimal valor2);
+        Task<IEnumerable<Produto>> GetByPrecoEntre(decimal valor1, decimal valor2);
+
+        Task<IEnumerable<Produto>> GetByPreco(decimal preco);
 
         Task<Produto?> Create(Produto produto);
 

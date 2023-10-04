@@ -87,18 +87,28 @@ namespace LojaDeGames.Service.Implements
             }
 
             produto.Categoria = produto.Categoria is not null ? _context.Categorias.FirstOrDefault(t => t.Id == produto.Categoria.Id) : null;
+            
             _context.Entry(ProdutoUpdate).State = EntityState.Detached;
             _context.Entry(produto).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return produto;
         }
-        public async Task<IEnumerable<Produto>> GetByPreco(decimal valor1, decimal valor2)
+        public async Task<IEnumerable<Produto>> GetByPrecoEntre(decimal valor1, decimal valor2)
         {
              var Produto = await _context.Produtos
                 .Where(p => p.Preco >= valor1 && p.Preco <= valor2)
                 .Include(p => p.Categoria)
                 .ToListAsync();
+            return Produto;
+        }
+
+        public async Task<IEnumerable<Produto>> GetByPreco(decimal preco)
+        {
+            var Produto = await _context.Produtos
+               .Where(p => p.Preco == preco)
+               .Include(p => p.Categoria)
+               .ToListAsync();
             return Produto;
         }
     }
